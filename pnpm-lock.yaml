@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@radix-ui/react-slot':
+    specifier: ^1.0.1
+    version: 1.0.1(react@18.2.0)
   '@types/node':
     specifier: 20.2.1
     version: 20.2.1
@@ -13,12 +16,21 @@ dependencies:
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.23)
+  class-variance-authority:
+    specifier: ^0.6.0
+    version: 0.6.0(typescript@5.0.4)
+  clsx:
+    specifier: ^1.2.1
+    version: 1.2.1
   eslint:
     specifier: 8.41.0
     version: 8.41.0
   eslint-config-next:
     specifier: 13.4.3
     version: 13.4.3(eslint@8.41.0)(typescript@5.0.4)
+  lucide-react:
+    specifier: ^0.220.0
+    version: 0.220.0(react@18.2.0)
   next:
     specifier: 13.4.3
     version: 13.4.3(react-dom@18.2.0)(react@18.2.0)
@@ -31,9 +43,15 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  tailwind-merge:
+    specifier: ^1.12.0
+    version: 1.12.0
   tailwindcss:
     specifier: 3.3.2
     version: 3.3.2
+  tailwindcss-animate:
+    specifier: ^1.0.5
+    version: 1.0.5(tailwindcss@3.3.2)
   typescript:
     specifier: 5.0.4
     version: 5.0.4
@@ -265,6 +283,25 @@ packages:
       open: 9.1.0
       picocolors: 1.0.0
       tslib: 2.5.2
+    dev: false
+
+  /@radix-ui/react-compose-refs@1.0.0(react@18.2.0):
+    resolution: {integrity: sha512-0KaSv6sx787/hK3eF53iOkiSLwAGlFMx5lotrqD2pTjB18KbybKoEIgkNZTKC60YECDQTKGTRcDBILwZVqVKvA==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@babel/runtime': 7.21.5
+      react: 18.2.0
+    dev: false
+
+  /@radix-ui/react-slot@1.0.1(react@18.2.0):
+    resolution: {integrity: sha512-avutXAFL1ehGvAXtPquu0YK5oz6ctS474iM3vNGQIkswrVhdrS52e3uoMQBzZhNRAIE0jBnUyXWNmSjGHhCFcw==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@babel/runtime': 7.21.5
+      '@radix-ui/react-compose-refs': 1.0.0(react@18.2.0)
+      react: 18.2.0
     dev: false
 
   /@rushstack/eslint-patch@1.2.0:
@@ -623,8 +660,25 @@ packages:
       fsevents: 2.3.2
     dev: false
 
+  /class-variance-authority@0.6.0(typescript@5.0.4):
+    resolution: {integrity: sha512-qdRDgfjx3GRb9fpwpSvn+YaidnT7IUJNe4wt5/SWwM+PmUwJUhQRk/8zAyNro0PmVfmen2635UboTjIBXXxy5A==}
+    peerDependencies:
+      typescript: '>= 4.5.5 < 6'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      clsx: 1.2.1
+      typescript: 5.0.4
+    dev: false
+
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
+
+  /clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert@2.0.1:
@@ -1791,6 +1845,14 @@ packages:
       yallist: 4.0.0
     dev: false
 
+  /lucide-react@0.220.0(react@18.2.0):
+    resolution: {integrity: sha512-bYtGUsLAWBvZu+BzAU/ziP1gzE4LwMEXLnlgSr1yUKEPPalLG77JLd5GdYebOVkpm+GtqRqnp6tEKDX7Bm8ZlQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
     dev: false
@@ -2497,6 +2559,18 @@ packages:
     dependencies:
       '@pkgr/utils': 2.4.0
       tslib: 2.5.2
+    dev: false
+
+  /tailwind-merge@1.12.0:
+    resolution: {integrity: sha512-Y17eDp7FtN1+JJ4OY0Bqv9OA41O+MS8c1Iyr3T6JFLnOgLg3EvcyMKZAnQ8AGyvB5Nxm3t9Xb5Mhe139m8QT/g==}
+    dev: false
+
+  /tailwindcss-animate@1.0.5(tailwindcss@3.3.2):
+    resolution: {integrity: sha512-UU3qrOJ4lFQABY+MVADmBm+0KW3xZyhMdRvejwtXqYOL7YjHYxmuREFAZdmVG5LPe5E9CAst846SLC4j5I3dcw==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      tailwindcss: 3.3.2
     dev: false
 
   /tailwindcss@3.3.2:
