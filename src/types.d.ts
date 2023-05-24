@@ -27,11 +27,14 @@ export interface Movie {
   tagline?: string;
   videos?: Videos;
   credits?: Credits;
+  media_type: string;
 }
 
 export interface MoviesResponse {
   page: number;
   results: Movie[];
+  total_pages: number;
+  total_results: number;
 }
 
 // export interface MovieDetails extends Movie {}

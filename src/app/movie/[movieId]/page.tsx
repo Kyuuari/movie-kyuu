@@ -1,15 +1,39 @@
 import CastCard from "@/components/cast-card";
+import { CircleRating } from "@/components/circle-rating";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import YouTubePlayer from "@/components/youtube-player";
 import { getAllMovieDataById } from "@/lib/fetchers";
+import { percent } from "@/lib/utils";
 import { Movie } from "@/types";
 import Link from "next/link";
 import React from "react";
+import { Metadata, ResolvingMetadata } from "next";
 
 const baseurl = "https://image.tmdb.org/t/p/w500/";
 const baseurl_backdrop =
   "https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/";
+
+type Props = {
+  params: { movieId: number };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: Props): Promise<Metadata> {
+  const movieData: Movie = await getAllMovieDataById(params.movieId);
+
+  // optionally access and extend (rather than replace) parent metadata
+  //   const previousImages = (await parent).openGraph?.images || [];
+  return {
+    title: movieData.title,
+    openGraph: {
+      images: [`${baseurl_backdrop}${movieData.backdrop_path}`],
+    },
+  };
+}
 
 export default async function page({
   params,
@@ -30,14 +54,6 @@ export default async function page({
 
   return (
     <main className="py-16">
-      {/* <div className="absolut sticky z-50 top-16 left-16">
-        <Link href={`/`}>
-          <Button variant={"ghost"}>
-            <Icons.ArrowLeft size={20} />
-            back
-          </Button>
-        </Link>
-      </div> */}
       <section className="overflow-hidden w-screen md:relative md:h-screen ">
         {movieData.backdrop_path ? (
           <img
@@ -60,7 +76,7 @@ export default async function page({
                 <div className="h-auto w-auto object-cover aspect-[2/3] transition-all hover:scale-110 bg-gradient-to-r from-violet-500 to-fuchsia-500" />
               )}
             </div>
-            <div className="flex flex-col gap-4 container">
+            <div className="flex flex-col gap-4 md:container">
               <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
                 {movieData.title}
               </h1>
@@ -99,6 +115,8 @@ export default async function page({
                     </Button>
                   </Link>
                 )}
+
+                <CircleRating percent={percent(movieData.vote_average)} />
               </div>
             </div>
           </div>
