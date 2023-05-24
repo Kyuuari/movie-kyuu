@@ -1,5 +1,7 @@
+import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import SiteHeader from "@/components/site-header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cn(inter.className, "dark")}>
+        <SiteHeader />
+        {children}
+      </body>
     </html>
   );
 }

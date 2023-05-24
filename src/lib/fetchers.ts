@@ -13,7 +13,7 @@ export async function getData() {
 
 export async function getMovieDataByPage(page: number) {
   const res = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&${page}`
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&page=${page}`
   );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
@@ -59,7 +59,7 @@ export async function getMovieVideosById(id: number) {
   return res.json();
 }
 
-export async function getCastByMovieId(id: number) {
+export async function getMovieCastById(id: number) {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
   );
