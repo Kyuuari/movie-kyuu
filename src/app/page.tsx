@@ -17,7 +17,7 @@ export default async function Home({ searchParams }: MovieParamsProps) {
     <main className="flex min-h-screen flex-col items-center justify-between py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {allShows.results.map((movie, index) => (
-          <MovieCard index={index} movieData={movie} />
+          <MovieCard key={index} index={index} movieData={movie} />
         ))}
       </div>
       <div className="fixed bottom-4 flex flex-row gap-8 md:bottom-[-10]">
