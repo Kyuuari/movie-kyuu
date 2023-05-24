@@ -1,16 +1,16 @@
-import { Cast } from "@/types";
+import { CastMember } from "@/types";
 import React from "react";
 import { Icons } from "./icons";
 
 type Props = {
-  cast: Cast;
+  cast: CastMember;
 };
 
 const baseurl = "https://image.tmdb.org/t/p/w500/";
 
 export default function CastCard({ cast }: Props) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col justify-center items-center">
       {cast.profile_path ? (
         <>
           <div className="overflow-hidden rounded w-[200px]">
@@ -27,7 +27,9 @@ export default function CastCard({ cast }: Props) {
       )}
 
       <p>{cast.name}</p>
-      <p className="text-xs text-muted-foreground">{cast.character}</p>
+      <p className="text-xs text-muted-foreground text-center flex flex-wrap">
+        {cast.character}
+      </p>
     </div>
   );
 }

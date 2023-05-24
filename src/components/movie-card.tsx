@@ -14,10 +14,17 @@ export const MovieCard = ({ movieData, index }: MovieDataProps) => {
     <Link href={`/movie/${movieData.id}`}>
       <div key={index} className="w-[220px] relative">
         <div className="overflow-hidden rounded">
-          <img
-            src={`${baseurl}${movieData.poster_path}`}
-            className="h-auto w-auto object-cover aspect-[2/3] transition-all hover:scale-110"
-          />
+          {movieData.poster_path ? (
+            <img
+              src={`${baseurl}${movieData.poster_path}`}
+              className="h-auto w-auto object-cover aspect-[2/3] transition-all hover:scale-110"
+            />
+          ) : (
+            <div
+              //   src={`${baseurl}${movieData.poster_path}`}
+              className="h-auto w-auto object-cover aspect-[2/3] transition-all hover:scale-110 bg-gradient-to-r from-violet-500 to-fuchsia-500"
+            />
+          )}
         </div>
         <div className="py-4 text-sm">
           <h3 className="font-medium leading-none">{movieData.title}</h3>
