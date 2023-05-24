@@ -79,8 +79,8 @@ export default async function page({
 
               <div className="flex flex-row flex-wrap gap-2">
                 <p className="font-bold">Genres: </p>
-                {movieData.genres.map((genres) => (
-                  <p>{genres.name}</p>
+                {movieData.genres.map((genres, index) => (
+                  <p key={index}>{genres.name}</p>
                 ))}
               </div>
 
