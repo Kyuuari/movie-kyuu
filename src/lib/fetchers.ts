@@ -22,6 +22,17 @@ export async function getMovieDataByPage(page: number) {
   return res.json();
 }
 
+export async function getMovieDataByParams(page: number, genre?: string) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&page=${page}&with_genres=${genre}`
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 /**TODO FETCH MOVIE AND TV SHOWS */
 export async function getMovieSearchDataByPage(page: number, query: string) {
   const res = await fetch(
