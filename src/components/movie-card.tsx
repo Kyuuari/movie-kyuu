@@ -3,19 +3,19 @@ import Link from "next/link";
 import React from "react";
 
 interface MovieDataProps {
-  index: number;
   movieData: Movie;
 }
 
 const baseurl = "https://image.tmdb.org/t/p/w500/";
 
-export const MovieCard = ({ movieData, index }: MovieDataProps) => {
+export const MovieCard = ({ movieData }: MovieDataProps) => {
   return (
-    <Link href={`/movie/${movieData.id}`}>
-      <div key={index} className="w-[220px] relative">
+    <Link href={`/movie/${movieData.id}?media=${movieData}`}>
+      <div className="w-[220px] relative">
         <div className="overflow-hidden rounded">
           {movieData.poster_path ? (
             <img
+              aria-label={`${movieData.title} image backdrop`}
               src={`${baseurl}${movieData.poster_path}`}
               className="h-auto w-auto object-cover aspect-[2/3] transition-all hover:scale-110"
             />

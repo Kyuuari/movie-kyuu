@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import SiteHeader from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={cn(inter.className, "dark")}>
         <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

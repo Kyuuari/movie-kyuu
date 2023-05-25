@@ -29,7 +29,7 @@ export const CircleRating = ({ percent }: ProgressProps) => {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="fixed inline-flex scale-75 items-center justify-center overflow-hidden rounded-full bottom-5 right-5 hover:scale-110 transition-all">
+          <div className="fixed inline-flex scale-75 items-center justify-center overflow-hidden rounded-full bottom-8 right-6 hover:scale-110 transition-all">
             <svg className="w-20 h-20">
               <circle
                 className="text-gray-300"
@@ -56,7 +56,7 @@ export const CircleRating = ({ percent }: ProgressProps) => {
               />
             </svg>
             <span
-              className={cn(circleColor, "absolute text-xl")}
+              className={cn(circleColor, "absolute text-xl select-none")}
             >{`${percent}`}</span>
           </div>
         </TooltipTrigger>

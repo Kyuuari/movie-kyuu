@@ -1,7 +1,14 @@
 import { Icons } from "@/components/icons";
 import { MovieCard } from "@/components/movie-card";
 import { Button } from "@/components/ui/button";
-import { getMovieDataByPage } from "@/lib/fetchers";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import {
+  getMovieDataByPage,
+  getNowPlayingMovies,
+  getPopularMovies,
+  getTopRatedMovies,
+  getUpcomingMovies,
+} from "@/lib/fetchers";
 import { cn } from "@/lib/utils";
 import { MoviesResponse } from "@/types";
 import Link from "next/link";
@@ -12,6 +19,10 @@ import Link from "next/link";
 
 export default async function Home() {
   // const page = typeof searchParams.page === "string" ? +searchParams.page : 1;
+  const popularList: MoviesResponse = await getPopularMovies();
+  const nowPlayingList: MoviesResponse = await getNowPlayingMovies();
+  const topRatedList: MoviesResponse = await getTopRatedMovies();
+  const upcomingList: MoviesResponse = await getUpcomingMovies();
 
   // const allShows: MoviesResponse = await getMovieDataByPage(page);
   return (
@@ -32,6 +43,78 @@ export default async function Home() {
           </div>
         </div>
       </div>
+
+      <section className="w-full px-4 py-6">
+        <h2 className="scroll-m-20 border-b my-4 py-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+          Now Playing
+        </h2>
+        <div className="px-4">
+          <div className="">
+            <ScrollArea>
+              <div className="flex space-x-4 pb-4">
+                {nowPlayingList.results.map((movie, index) => (
+                  <MovieCard key={index} movieData={movie} />
+                ))}
+              </div>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full px-4 py-6">
+        <h2 className="scroll-m-20 border-b my-4 py-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+          Upcoming
+        </h2>
+        <div className="px-4">
+          <div className="">
+            <ScrollArea>
+              <div className="flex space-x-4 pb-4">
+                {upcomingList.results.map((movie, index) => (
+                  <MovieCard key={index} movieData={movie} />
+                ))}
+              </div>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full px-4 py-6">
+        <h2 className="scroll-m-20 border-b my-4 py-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+          Top Rated
+        </h2>
+        <div className="px-4">
+          <div className="">
+            <ScrollArea>
+              <div className="flex space-x-4 pb-4">
+                {topRatedList.results.map((movie, index) => (
+                  <MovieCard key={index} movieData={movie} />
+                ))}
+              </div>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full px-4 py-6">
+        <h2 className="scroll-m-20 border-b my-4 py-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+          Popular
+        </h2>
+        <div className="px-4">
+          <div className="">
+            <ScrollArea>
+              <div className="flex space-x-4 pb-4">
+                {popularList.results.map((movie, index) => (
+                  <MovieCard key={index} movieData={movie} />
+                ))}
+              </div>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

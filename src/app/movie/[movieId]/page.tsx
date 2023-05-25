@@ -31,6 +31,7 @@ export async function generateMetadata({
     title: movieData.title,
     openGraph: {
       images: [`${baseurl_backdrop}${movieData.backdrop_path}`],
+      description: movieData.overview,
     },
   };
 }

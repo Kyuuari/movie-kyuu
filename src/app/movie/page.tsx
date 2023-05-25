@@ -17,13 +17,13 @@ export default async function Home({ searchParams }: MovieParamsProps) {
     <main className="flex min-h-screen flex-col items-center justify-between py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {allShows.results.map((movie, index) => (
-          <MovieCard key={index} index={index} movieData={movie} />
+          <MovieCard key={index} movieData={movie} />
         ))}
       </div>
 
       <div className="fixed bottom-8 flex flex-row gap-8 md:bottom-[-10]">
         <Link href={`/movie?page=${Math.max(page - 1, 1)}`}>
-          <Button>
+          <Button aria-label="previous page">
             <Icons.ArrowLeft />
           </Button>
         </Link>
@@ -31,7 +31,7 @@ export default async function Home({ searchParams }: MovieParamsProps) {
           {searchParams.page ?? 1}
         </h1>
         <Link href={`/movie?page=${page + 1}`}>
-          <Button>
+          <Button aria-label="next page">
             <Icons.arrowRight />
           </Button>
         </Link>
