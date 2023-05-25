@@ -9,6 +9,7 @@ import { Movie } from "@/types";
 import Link from "next/link";
 import React from "react";
 import { Metadata } from "next";
+import { ShareLink } from "@/components/share-link";
 
 const baseurl = "https://image.tmdb.org/t/p/w500/";
 const baseurl_backdrop =
@@ -122,6 +123,7 @@ export default async function page({
                   </Link>
                 )}
               </div>
+              <ShareLink />
             </div>
           </div>
         </div>

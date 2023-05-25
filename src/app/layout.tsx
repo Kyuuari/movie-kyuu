@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import SiteHeader from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={cn(inter.className, "dark")}>
         <SiteHeader />
         {children}
+        <Toaster />
         <SiteFooter />
       </body>
     </html>

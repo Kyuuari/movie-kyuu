@@ -24,6 +24,7 @@ import {
   SunMedium,
   Trash,
   User,
+  Link,
   X,
   type Icon as LucideIcon,
   ArrowLeft,
@@ -45,6 +46,7 @@ export const Icons = {
       <circle cx="12" cy="12" r="10"></circle>
     </svg>
   ),
+  link: Link,
   close: X,
   upRight: ArrowUpRight,
   spinner: Loader2,

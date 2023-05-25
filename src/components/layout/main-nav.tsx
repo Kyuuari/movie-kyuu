@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import { Icons } from "../icons";
 import { cn } from "@/lib/utils";
 
 type Props = {};
@@ -12,7 +11,6 @@ export default function MainNav({}: Props) {
         <span className="bg-purple-600 h-full w-full aspect-square rounded-full text-center">
           🎬
         </span>
-        {/* <Icons.logo aria-label="Home Icon" className="h-6 w-6" /> */}
         <span className="hidden font-bold sm:inline-block">{"MovieKyuu"}</span>
       </Link>
       <nav className="flex items-center space-x-6 text-sm font-medium">
