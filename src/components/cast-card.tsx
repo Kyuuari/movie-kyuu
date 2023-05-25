@@ -15,6 +15,8 @@ export default function CastCard({ cast }: Props) {
         <>
           <div className="overflow-hidden rounded w-[200px]">
             <img
+              alt={`${cast.name}`}
+              aria-label={`${cast.name} photo`}
               src={`${baseurl}${cast.profile_path}`}
               className="h-auto w-auto object-cover aspect-[2/3] rounded transition-all"
             />

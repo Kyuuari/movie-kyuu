@@ -20,7 +20,7 @@ export const CircleRating = ({ percent }: ProgressProps) => {
   } else if (percent > 25 && percent <= 50) {
     circleColor = cn("text-orange-500");
   } else if (percent > 50 && percent <= 75) {
-    circleColor = cn("text-yellow-500");
+    circleColor = cn("text-yellow-400");
   } else {
     circleColor = cn("text-green-500");
   }
@@ -29,7 +29,7 @@ export const CircleRating = ({ percent }: ProgressProps) => {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="fixed inline-flex scale-75 items-center justify-center overflow-hidden rounded-full bottom-8 right-6 hover:scale-110 transition-all">
+          <div className="inline-flex items-center justify-center overflow-hidden rounded-full hover:scale-125 transition-all">
             <svg className="w-20 h-20">
               <circle
                 className="text-gray-300"

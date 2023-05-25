@@ -8,7 +8,7 @@ import { percent } from "@/lib/utils";
 import { Movie } from "@/types";
 import Link from "next/link";
 import React from "react";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 const baseurl = "https://image.tmdb.org/t/p/w500/";
 const baseurl_backdrop =
@@ -24,13 +24,10 @@ export async function generateMetadata({
   searchParams,
 }: Props): Promise<Metadata> {
   const movieData: Movie = await getAllMovieDataById(params.movieId);
-
-  // optionally access and extend (rather than replace) parent metadata
-  //   const previousImages = (await parent).openGraph?.images || [];
   return {
     title: movieData.title,
     openGraph: {
-      images: [`${baseurl_backdrop}${movieData.backdrop_path}`],
+      images: [`${baseurl}${movieData.poster_path}`],
       description: movieData.overview,
     },
   };
@@ -55,9 +52,10 @@ export default async function page({
 
   return (
     <main className="py-16">
-      <section className="overflow-hidden w-screen md:relative md:h-screen ">
+      <section className="overflow-hidden w-full md:relative md:h-screen ">
         {movieData.backdrop_path ? (
           <img
+            alt={`${movieData.title} backdrop`}
             src={`${baseurl_backdrop}${movieData.backdrop_path}`}
             className="h-auto w-full object-cover filter brightness-50 md:blur-sm"
           />
@@ -77,21 +75,27 @@ export default async function page({
                 <div className="h-auto w-auto object-cover aspect-[2/3] transition-all hover:scale-110 bg-gradient-to-r from-violet-500 to-fuchsia-500" />
               )}
             </div>
-            <div className="flex flex-col gap-4 md:container">
+            <div className="flex flex-col py-4 gap-4 md:container">
               <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
                 {movieData.title}
               </h1>
-
               <p className="max-w-[60ch]">{movieData.overview}</p>
               <p>
                 <b>Release Date:</b> {movieData.release_date}
               </p>
               <p className="flex flex-row gap-2">
                 <b>Status:</b> {movieData.status}
-                <span className="relative flex h-4 w-4 items-center">
-                  <span className="absolute h-full w-full rounded-full bg-green-500 animate-pulse" />
-                  <span className="absolute inset-1/4 h-1/2 w-1/2 rounded-full bg-green-400 animate-pulse" />
-                </span>
+                {movieData.status == "Released" ? (
+                  <span className="relative flex h-4 w-4 items-center">
+                    <span className="absolute h-full w-full rounded-full bg-green-500 animate-pulse" />
+                    <span className="absolute inset-1/4 h-1/2 w-1/2 rounded-full bg-green-400 animate-pulse" />
+                  </span>
+                ) : (
+                  <span className="relative flex h-4 w-4 items-center">
+                    <span className="absolute h-full w-full rounded-full bg-red-500 animate-pulse" />
+                    <span className="absolute inset-1/4 h-1/2 w-1/2 rounded-full bg-red-400 animate-pulse" />
+                  </span>
+                )}
               </p>
 
               <div className="flex flex-row flex-wrap gap-2">
@@ -102,6 +106,8 @@ export default async function page({
               </div>
 
               <div className="flex flex-row">
+                <CircleRating percent={percent(movieData.vote_average)} />
+
                 {movieData.homepage !== "" && (
                   <Link href={movieData.homepage}>
                     <Button variant={"ghost"}>
@@ -116,8 +122,6 @@ export default async function page({
                     </Button>
                   </Link>
                 )}
-
-                <CircleRating percent={percent(movieData.vote_average)} />
               </div>
             </div>
           </div>
@@ -127,7 +131,7 @@ export default async function page({
       <section className="container py-4">
         {trailerVideo?.key && (
           <>
-            <h2 className="scroll-m-20 border-b py-4 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+            <h2 className="scroll-m-20 border-b py-2 my-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
               Trailer
             </h2>
             <div className="px-4">
@@ -137,7 +141,7 @@ export default async function page({
         )}
 
         <section>
-          <h2 className="scroll-m-20 border-b py-4 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+          <h2 className="scroll-m-20 border-b py-2 my-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
             Cast
           </h2>
           <div className="flex flex-wrap gap-2 justify-evenly">
