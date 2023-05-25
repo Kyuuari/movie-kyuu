@@ -4,7 +4,7 @@ import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import YouTubePlayer from "@/components/youtube-player";
 import { getAllMovieDataById } from "@/lib/fetchers";
-import { percent } from "@/lib/utils";
+import { formatDate, percent } from "@/lib/utils";
 import { Movie } from "@/types";
 import Link from "next/link";
 import React from "react";
@@ -19,16 +19,15 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata({
-  params,
-  searchParams,
-}: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const movieData: Movie = await getAllMovieDataById(params.movieId);
   return {
-    title: movieData.title,
+    title: `MovieKyuu | ${movieData.title}`,
     openGraph: {
+      title: `MovieKyuu | ${movieData.title}`,
       images: [`${baseurl}${movieData.poster_path}`],
       description: movieData.overview,
+      siteName: "MovieKyuu",
     },
   };
 }
@@ -81,7 +80,7 @@ export default async function page({
               </h1>
               <p className="max-w-[60ch]">{movieData.overview}</p>
               <p>
-                <b>Release Date:</b> {movieData.release_date}
+                <b>Release Date:</b> {formatDate(movieData.release_date)}
               </p>
               <p className="flex flex-row gap-2">
                 <b>Status:</b> {movieData.status}

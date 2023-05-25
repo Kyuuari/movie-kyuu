@@ -30,7 +30,11 @@ export default async function Home() {
       <div className="bg-gradient-to-r w-full from-violet-500 to-fuchsia-500 py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto container">
           <h1 className="text-white text-4xl md:text-6xl font-bold mb-6">
-            Welcome to MovieKyuu
+            Welcome to{" "}
+            <span className="animate-bounce inline-block transition-all">
+              🎬
+            </span>{" "}
+            MovieKyuu
           </h1>
           <p className="text-white text-lg md:text-xl mb-10">
             Discover and explore a vast collection of movies.

@@ -14,14 +14,14 @@ export default async function Home({ searchParams }: MovieParamsProps) {
 
   const allShows: MoviesResponse = await getMovieDataByPage(page);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between py-16">
+    <main className="flex min-h-screen flex-col items-center justify-between pt-16 pb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {allShows.results.map((movie, index) => (
           <MovieCard key={index} movieData={movie} />
         ))}
       </div>
 
-      <div className="fixed bottom-8 flex flex-row gap-8 md:bottom-[-10]">
+      <div className="sticky bottom-8 flex flex-row gap-8 md:bottom-[-8]">
         <Link href={`/movie?page=${Math.max(page - 1, 1)}`}>
           <Button aria-label="previous page">
             <Icons.ArrowLeft />
