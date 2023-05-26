@@ -17,7 +17,7 @@ export const ShareLink = () => {
     });
   };
   return (
-    <Button className="w-32 h-10" onClick={handleCopyUrl}>
+    <Button className="" onClick={handleCopyUrl}>
       <p className="gap-2 flex flex-row flex-nowrap items-center">
         Copy URL <Icons.copy size={15} />
       </p>

@@ -30,6 +30,12 @@ export interface Movie {
   media_type: string;
 }
 
+export interface FavoriteMovie {
+  id: number;
+  poster_path: string | null;
+  release_date: string;
+}
+
 export interface MoviesResponse {
   page: number;
   results: Movie[];
