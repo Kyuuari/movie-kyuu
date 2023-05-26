@@ -16,6 +16,7 @@ import {
   Loader2,
   LucideProps,
   Moon,
+  Menu,
   MoreVertical,
   Pizza,
   Plus,
@@ -25,6 +26,8 @@ import {
   Trash,
   User,
   Link,
+  Heart,
+  HeartOff,
   X,
   type Icon as LucideIcon,
   ArrowLeft,
@@ -46,6 +49,9 @@ export const Icons = {
       <circle cx="12" cy="12" r="10"></circle>
     </svg>
   ),
+  menu: Menu,
+  like: Heart,
+  dislike: HeartOff,
   link: Link,
   close: X,
   upRight: ArrowUpRight,

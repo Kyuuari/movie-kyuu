@@ -29,7 +29,7 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between py-16">
       <div className="bg-gradient-to-r w-full from-violet-500 to-fuchsia-500 py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto container">
-          <h1 className="text-white text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 select-none">
             Welcome to{" "}
             <span className="animate-bounce inline-block transition-all">
               🎬

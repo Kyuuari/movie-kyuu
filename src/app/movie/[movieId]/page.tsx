@@ -10,6 +10,7 @@ import Link from "next/link";
 import React from "react";
 import { Metadata } from "next";
 import { ShareLink } from "@/components/share-link";
+import { SaveButton } from "@/components/save-button";
 
 const baseurl = "https://image.tmdb.org/t/p/w500/";
 const baseurl_backdrop =
@@ -123,7 +124,10 @@ export default async function page({
                   </Link>
                 )}
               </div>
-              <ShareLink />
+              <div className="flex md:flex-row gap-2">
+                <ShareLink />
+                <SaveButton movie={movieData} />
+              </div>
             </div>
           </div>
         </div>
