@@ -34,7 +34,7 @@ I would like to acknowledge the resources and inspirations that helped me build 
 
  - [shadcn/ui](https://ui.shadcn.com/) by [@shadcn](https://twitter.com/shadcn)
  - [Netflix Clone](https://netflx-web.vercel.app/) by [@sadmann17](https://twitter.com/sadmann17)
- - [Movex](https://segovia-movuex-app.vercel.app/) by [@engrjeffsegovia](https://twitter.com/engrjeffsegovia)
+ - [Movuex](https://segovia-movuex-app.vercel.app/) by [@engrjeffsegovia](https://twitter.com/engrjeffsegovia)
  - [BuildUI](https://buildui.com/) by [@ryantotweets](https://twitter.com/ryantotweets) and [@samselikoff](https://twitter.com/samselikoff)
 ## Screenshots
 
