@@ -20,28 +20,28 @@ import { useEffect } from "react";
 export default function MyList() {
   const localStorageAvailable =
     typeof window !== "undefined" && typeof localStorage !== "undefined";
-  const [favorites, setFavorites] = useLocalStorage<Movie[]>(
-    "favorites",
+  const [list, setList] = useLocalStorage<Movie[]>(
+    "list",
     localStorageAvailable ? [] : []
   );
 
   useEffect(() => {
     if (localStorageAvailable) {
-      const storedFavorites = localStorage.getItem("favorites");
-      if (storedFavorites) {
-        // Handle the retrieved favorites from localStorage
-        const parsedFavorites = JSON.parse(storedFavorites);
-        setFavorites(parsedFavorites);
+      const storedList = localStorage.getItem("list");
+      if (storedList) {
+        // Handle the retrieved list from localStorage
+        const parsedListsetList = JSON.parse(storedList);
+        setList(parsedListsetList);
       }
     }
   }, []);
 
-  const removeFavorite = (movie: Movie) => {
-    setFavorites(favorites.filter((fav) => fav.id !== movie.id));
+  const removeMovie = (movie: Movie) => {
+    setList(list.filter((fav) => fav.id !== movie.id));
   };
 
-  const clearFavorites = () => {
-    setFavorites([]);
+  const clearList = () => {
+    setList([]);
   };
 
   return (
@@ -50,9 +50,9 @@ export default function MyList() {
         My List
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center items-start py-16">
-        {favorites.map((movie, index) => (
+        {list.map((movie, index) => (
           <div key={index} className="flex flex-col justify-stretch gap-2">
-            <Button variant={"outline"} onClick={() => removeFavorite(movie)}>
+            <Button variant={"outline"} onClick={() => removeMovie(movie)}>
               Remove From List
             </Button>
             <MovieCard movieData={movie} />
@@ -62,7 +62,7 @@ export default function MyList() {
 
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Button variant={"outline"}>Clear Favorites</Button>
+          <Button variant={"outline"}>Clear My List</Button>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
@@ -74,9 +74,7 @@ export default function MyList() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={clearFavorites}>
-              Continue
-            </AlertDialogAction>
+            <AlertDialogAction onClick={clearList}>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

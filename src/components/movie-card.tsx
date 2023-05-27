@@ -21,10 +21,7 @@ export const MovieCard = ({ movieData }: MovieDataProps) => {
               className="h-auto w-auto object-cover aspect-[2/3] transition-all hover:scale-110"
             />
           ) : (
-            <div
-              //   src={`${baseurl}${movieData.poster_path}`}
-              className="h-auto w-auto object-cover aspect-[2/3] transition-all hover:scale-110 bg-gradient-to-r from-violet-500 to-fuchsia-500"
-            />
+            <div className="h-auto w-auto object-cover aspect-[2/3] transition-all hover:scale-110 bg-gradient-to-r from-violet-500 to-fuchsia-500" />
           )}
         </div>
         <div className="py-4 text-sm">
@@ -33,9 +30,6 @@ export const MovieCard = ({ movieData }: MovieDataProps) => {
             {movieData.release_date ? formatDate(movieData.release_date) : ""}
           </p>
         </div>
-        {/* <div className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-6xl text-white font-semibold">
-        Dwayne
-    </div> */}
       </div>
     </Link>
   );
