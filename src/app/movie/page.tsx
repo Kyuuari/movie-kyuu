@@ -17,16 +17,16 @@ export default async function Home({ searchParams }: MovieParamsProps) {
 
   const allShows: MoviesResponse = await getMovieDataByParams(page, genre);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("hello World");
-    // const formData = new FormData(event.currentTarget);
-    // const params = new URLSearchParams(searchParams);
-    // for (const [key, value] of formData.entries()) {
-    //   params.set(key, value.toString());
-    // }
-    // router.push(`/?${params.toString()}`);
-  };
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   console.log("hello World");
+  //   // const formData = new FormData(event.currentTarget);
+  //   // const params = new URLSearchParams(searchParams);
+  //   // for (const [key, value] of formData.entries()) {
+  //   //   params.set(key, value.toString());
+  //   // }
+  //   // router.push(`/?${params.toString()}`);
+  // };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-16 pb-8">

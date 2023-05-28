@@ -10,6 +10,12 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "MovieKyuu",
   description: "Queue up your favourite movies",
+  openGraph: {
+    title: `MovieKyuu`,
+    images: "https://movie-kyuu.vercel.app/og",
+    description: "Queue up your favourite movies",
+    siteName: "MovieKyuu",
+  },
 };
 
 export default function RootLayout({
