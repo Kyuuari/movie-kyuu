@@ -19,13 +19,13 @@ export async function GET() {
           backgroundColor: "black",
         }}
       >
-        <div tw="bg-purple-500 h-full flex">
-          <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8">
+        <div tw="bg-purple-500 justify-center items-center flex">
+          <div tw="flex flex-col w-full py-12 px-16 justify-center items-center">
             <div tw="flex flex-col">
-              <h1 tw="text-white text-4xl md:text-6xl font-bold mb-6 select-none">
+              <h1 tw="text-white text-6xl font-bold mb-6 select-none">
                 Welcome to MovieKyuu
               </h1>
-              <p tw="text-white text-lg md:text-xl mb-10">
+              <p tw="text-white text-lg mb-10">
                 Discover and explore a vast collection of movies.
               </p>
             </div>
