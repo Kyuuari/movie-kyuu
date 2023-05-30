@@ -1,7 +1,5 @@
 import React from "react";
 import MainNav from "./main-nav";
-// import { CommandSearch } from "./command-search";
-// import { Icons } from "./icons";
 import { SearchBar } from "../search-bar";
 import { MobileNav } from "./mobile-nav";
 

@@ -19,7 +19,7 @@ export async function GET() {
           backgroundColor: "black",
         }}
       >
-        <div tw="bg-purple-500 justify-center items-center flex">
+        <div tw="bg-purple-500 justify-center h-full items-center flex">
           <div tw="flex flex-col w-full py-12 px-16 justify-center items-center">
             <div tw="flex flex-col">
               <h1 tw="text-white text-6xl font-bold mb-6 select-none">
