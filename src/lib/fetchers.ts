@@ -1,6 +1,7 @@
 export async function getData() {
   const res = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
+    { next: { revalidate: 3600 } }
   );
   // Recommendation: handle errors
   if (!res.ok) {
@@ -47,7 +48,8 @@ export async function getMovieSearchDataByPage(page: number, query: string) {
 
 export async function getMovieDataById(id: number) {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
+    { next: { revalidate: 3600 } }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -58,7 +60,8 @@ export async function getMovieDataById(id: number) {
 
 export async function getAllMovieDataById(id: number) {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&append_to_response=videos,credits`
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&append_to_response=videos,credits`,
+    { next: { revalidate: 3600 } }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -69,7 +72,8 @@ export async function getAllMovieDataById(id: number) {
 
 export async function getMovieVideosById(id: number) {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
+    { next: { revalidate: 3600 } }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -91,7 +95,8 @@ export async function getMovieCastById(id: number) {
 
 export async function getPopularMovies() {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
+    { next: { revalidate: 3600 } }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -102,7 +107,8 @@ export async function getPopularMovies() {
 
 export async function getUpcomingMovies() {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
+    { next: { revalidate: 3600 } }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -113,7 +119,8 @@ export async function getUpcomingMovies() {
 
 export async function getTopRatedMovies() {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
+    { next: { revalidate: 3600 } }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -124,7 +131,8 @@ export async function getTopRatedMovies() {
 
 export async function getNowPlayingMovies() {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
+    { next: { revalidate: 3600 } }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
